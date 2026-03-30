@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    color-scheme: dark;
+}
+
+body {
+    @apply bg-[#0a0a0a] text-slate-200 font-sans selection:bg-primary-500/20 selection:text-primary-300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+    @apply bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl shadow-xl transition-all duration-300;
+}
+
+.glass-card:hover {
+    @apply border-white/20 shadow-primary-500/5;
+}
+
+.gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-purple-400 to-primary-600 animate-gradient;
+}
+
+.nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-400 hover:text-white hover:bg-white/5;
+}
+
+.nav-link.active {
+    @apply text-white bg-primary-500/10 border-l-4 border-primary-500 rounded-l-none;
+}
+
+.btn-primary {
+    @apply px-6 py-3 bg-primary-600 text-white font-medium rounded-xl transition-all duration-200 hover:bg-primary-500 active:scale-95 shadow-lg shadow-primary-900/20;
+}
+
+.btn-secondary {
+    @apply px-6 py-3 bg-white/5 border border-white/10 text-white font-medium rounded-xl transition-all duration-200 hover:bg-white/10 active:scale-95;
+}
+
+/* Animation for components */
+.page-transition {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3D Animations for Flashcards */
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.preserve-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+    transform: rotateY(180deg);
+}
+
+/* React Flow Customization */
+.react-flow__node {
+    @apply !bg-[#1a1a1a] !border-border !text-white !rounded-xl !p-4 !shadow-lg;
+}
+
+.react-flow__edge-path {
+    @apply !stroke-primary-500/50;
+}
+
+.react-flow__handle {
+    @apply !bg-primary-500;
+}

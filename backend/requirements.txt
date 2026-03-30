@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+motor
+pymongo
+python-multipart
+pydantic
+python-dotenv
+httpx
+pymupdf
+python-docx
+beautifulsoup4
+lxml
+python-jose[cryptography]
+passlib[bcrypt]
+openai
