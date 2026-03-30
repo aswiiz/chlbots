@@ -36,8 +36,8 @@ const Flashcard = ({ projectId }) => {
     const handleGenerate = async () => {
         setLoading(true);
         try {
-            const newCards = await generateFlashcards(projectId);
-            setCards(newCards);
+            const result = await generateFlashcards(projectId);
+            setCards(result.cards || result);
             setCurrentIndex(0);
         } catch (err) {
             alert("Error generating flashcards.");

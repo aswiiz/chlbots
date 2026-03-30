@@ -1,7 +1,13 @@
 import axios from 'axios';
 
+let baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+// Automatically append /api if the user provided the base Render URL without it
+if (baseUrl && !baseUrl.endsWith('/api')) {
+    baseUrl = baseUrl.endsWith('/') ? `${baseUrl}api` : `${baseUrl}/api`;
+}
+
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8000/api',
+    baseURL: baseUrl,
 });
 
 export const createProject = async (name, userId) => {

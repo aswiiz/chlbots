@@ -10,7 +10,7 @@ import ReactFlow, {
     MarkerType
 } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { Download, RefreshCw, ZoomIn, ZoomOut } from 'lucide-react';
+import { Download, RefreshCw, ZoomIn, ZoomOut, Network } from 'lucide-react';
 import { generateMindMap, getMindmap } from '../utils/api';
 
 const initialNodes = [
@@ -80,7 +80,8 @@ const MindMap = ({ projectId }) => {
         setLoading(true);
         try {
             const data = await generateMindMap(projectId);
-            processMindmapData(data);
+            const actualData = data.data || data.mindmap || data;
+            processMindmapData(actualData);
         } catch (err) {
             alert("Failed to generate mind map. Make sure you have uploaded documents.");
         } finally {
