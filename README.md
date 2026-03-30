@@ -55,3 +55,38 @@ SmartNotes AI uses a **high-contrast dark aesthetic** with **glassmorphic** UI e
 
 ---
 Built with ❤️ for Scholars & Researchers.
+
+---
+
+## 🚀 Deployment Guide
+
+This project is set up for a dual-host deployment: **Frontend on Vercel** and **Backend on Render**.
+
+### 1. Backend (Render.com)
+1. **Create a New Web Service** on Render.
+2. Link your GitHub repository.
+3. Set **Root Directory** to `backend`.
+4. **Environment**: `Python`
+5. **Build Command**: `pip install -r requirements.txt`
+6. **Start Command**: `uvicorn app:app --host 0.0.0.0 --port $PORT`
+7. Add **Environment Variables**:
+   - `SAMBANOVA_API_KEY`: Your API Key
+   - `MONGODB_URI`: Your MongoDB Atlas URI
+
+### 2. Frontend (Vercel)
+1. **Create a New Project** on Vercel.
+2. Link your GitHub repository.
+3. Set **Root Directory** to `frontend`.
+4. Vercel will auto-detect Vite.
+5. Add **Environment Variable**:
+   - `VITE_API_URL`: The URL of your Render backend (e.g., `https://smartnotes-api.onrender.com/api`)
+6. Deploy!
+
+### 🏗️ Monorepo Structure
+```text
+.
+├── backend/          # FastAPI Backend (Render)
+├── frontend/         # React/Vite Frontend (Vercel)
+├── .gitignore        # Shared gitignore
+└── README.md
+```
